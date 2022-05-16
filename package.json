@@ -1,0 +1,19 @@
+{
+  "name": "assignment-3---microservices",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thanukshi/Assignment-3---Microservices.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Thanukshi/Assignment-3---Microservices/issues"
+  },
+  "homepage": "https://github.com/Thanukshi/Assignment-3---Microservices#readme"
+}
