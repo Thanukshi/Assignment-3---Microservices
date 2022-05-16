@@ -5,8 +5,6 @@ const utils = require("../../lib/utils");
 
 const upload = require("../../utils/multer");
 
-routes.post("/user_validation", UserRoutes.checkUserDetials);
-
 routes.post("/register", UserRoutes.registerUser);
 
 routes.post("/login", UserRoutes.loginUser);
