@@ -5,8 +5,14 @@ const utils = require("../lib/utils");
 const cloudinary = require("../utils/cloudinary");
 
 exports.registerUser = async function (req, res, next) {
-  const { user_email, user_name, user_password, user_cPassword, user_gender, user_phone } =
-    req.body;
+  const {
+    user_email,
+    user_name,
+    user_password,
+    user_cPassword,
+    user_gender,
+    user_phone,
+  } = req.body;
 
   try {
     if (!user_email) {
@@ -44,8 +50,7 @@ exports.registerUser = async function (req, res, next) {
         Success: false,
         message: "Please enter a your phone.",
       });
-    }
-    else if (!validateEmail(user_email)) {
+    } else if (!validateEmail(user_email)) {
       return res.status(200).json({
         code: 406,
         success: false,
@@ -103,6 +108,8 @@ exports.registerUser = async function (req, res, next) {
         const newUser = new User({
           user_email,
           user_name,
+          user_phone,
+          user_gender,
           hash: hash,
           salt: salt,
         });
@@ -305,6 +312,38 @@ exports.geAllUserDetails = async function (req, res, next) {
       success: false,
       status: "Internal Server Error",
       message: error.message,
+    });
+  }
+};
+
+exports.updateUser = async function (req, res, next) {
+  try {
+    if (req.params && req.params.id) {
+      const { user_name, user_email, user_phone, user_gender } = req.body;
+      await User.findByIdAndUpdate(
+        { _id: req.params.id },
+        {
+          user_name,
+          user_email,
+          user_phone,
+          user_gender,
+        }
+      );
+      const user = await User.findById(req.params.id);
+      return res.status(200).json({
+        code: 200,
+        success: true,
+        status: "OK",
+        UserDetails: user,
+        message: "Account details update successfully.",
+      });
+    }
+  } catch (err) {
+    return res.status(500).json({
+      code: 500,
+      success: false,
+      status: "Internal Server Error",
+      message: err.message,
     });
   }
 };

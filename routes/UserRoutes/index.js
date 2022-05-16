@@ -17,7 +17,7 @@ routes.get("/user/:id", UserRoutes.getUserDetailsByID);
 
 routes.get("/other_users/:id", UserRoutes.geAllUserDetails);
 
-// routes.get("/getUser/:id", UserRoutes.getUserDetailsByID);
+routes.get("/update_user_details/:id", UserRoutes.updateUser);
 
 // routes.get("/getUser", utils.authMiddleware, UserRoutes.getUserDetails);
 
