@@ -25,7 +25,7 @@ spec:
         app: user-management
     spec:
       containers:
-      - image: thanukshi/user_management:v1
+      - image: thanukshi/user_management:latest
         ports:
         - containerPort: 8000
         name: user-management-bgz8n
