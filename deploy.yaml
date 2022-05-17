@@ -30,7 +30,3 @@ spec:
         - containerPort: 8000
         name: user-management-bgz8n
         resources: {}
-        terminationMessagePath: /dev/termination-log
-        terminationMessagePolicy: File
-      dnsPolicy: ClusterFirst
-      restartPolicy: Always
