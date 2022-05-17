@@ -28,7 +28,6 @@ spec:
       - image: thanukshi/user_management:v1
         ports:
         - containerPort: 8000
-        imagePullPolicy: IfNotPresent
         name: user-management-bgz8n
         resources: {}
         terminationMessagePath: /dev/termination-log
